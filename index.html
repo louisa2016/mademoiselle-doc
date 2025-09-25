@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr" data-fr-scheme="system">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+
+    <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+    <link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+
+    <link rel="stylesheet" href="dsfr.min.css">
+    <link rel="stylesheet" href="utility/utility.min.css">
+
+    <!--- Script pour corriger l'effet de flash au chargement du mode sombre, à placer dans le head pour être exécuté le plus tôt possible -->
+    <script type="module">
+      const e="system",t="dark",c="dark",o="data-fr-theme",a="data-fr-scheme",r=`:root[${o}], :root[${a}]`,m=()=>{document.documentElement.setAttribute(o,c),document.documentElement.style.colorScheme="dark"},n=()=>{window.matchMedia("(prefers-color-scheme: dark)").matches&&m()};(()=>{if(document.documentElement.matches(r)){const c=(()=>{try{return"localStorage"in window&&null!==window.localStorage}catch(e){return!1}})()?localStorage.getItem("scheme"):"",o=document.documentElement.getAttribute(a);switch(!0){case c===t:m();break;case c===e:n();break;case o===t:m();break;case o===e:n()}}})();
+    </script>
+
+    <title>Secrétariat de Direction</title>
+  </head>
+  <body>
+<header class="fr-header" role="banner">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row">
+                <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand-top">
+                        <div class="fr-header__logo">
+                            <p class="fr-logo">République<br>Française</p>
+                        </div>
+                        <div class="fr-header__service">
+                            <p class="fr-header__service-title">Collège Katherine Johnson</p>
+                            <p class="fr-header__service-tagline">Secrétariat de Direction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+<div class="fr-container fr-my-4w">
+    <template hx-get="/templates/home.html" hx-trigger="load" hx-swap="outerHTML"></template>
+</div>  
+    <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
+    <script type="module" src="dsfr.module.min.js"></script>
+    <script type="text/javascript" nomodule src="dsfr.nomodule.min.js"></script>
+    <!-- Script spécifique à l'application -->
+    <!-- Librairies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.66.3/docxtemplater.js"></script>
+    <script src="https://unpkg.com/pizzip@3.2.0/dist/pizzip.js"></script>
+    <script src="https://unpkg.com/pizzip@3.2.0/dist/pizzip-utils.js"></script>>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.7/dist/htmx.min.js"></script>
+  </body>
+</html>

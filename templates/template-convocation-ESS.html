@@ -1,0 +1,28 @@
+<h2 class="fr-h2">📄 Générateur de Convocation : Équipe de Suivi de Scolarisation (ESS)</h2>
+
+<form id="convocationForm" class="fr-form-group">
+  <label for="aujourdhui" class="fr-label">Document daté du</label>
+  <input type="date" id="aujourdhui" required class="fr-input">
+
+  <label for="date" class="fr-label">Date de la convocation</label>
+  <input type="date" id="date" required class="fr-input">
+
+  <label for="heure" class="fr-label">Heure</label>
+  <input type="time" id="heure" class="fr-input">
+  
+  <label for="nom" class="fr-label">Nom de l'Élève</label>
+  <input type="text" id="nom" class="fr-input">
+
+  <label for="prenom" class="fr-label">Prénom de l'Élève</label>
+  <input type="text" id="prenom" class="fr-input">
+
+  <label for="classe" class="fr-label">Classe de l'Élève</label>
+  <input type="text" id="classe" class="fr-input">
+
+  <button id="previewBtn" type="button" class="fr-btn fr-mt-2w">📌 Prévisualiser</button>
+  <button id="downloadDOCXBtn" type="button" class="fr-btn fr-btn--secondary fr-mt-2w">📝 Word</button>
+</form>
+
+<div id="preview" class="fr-mt-4w fr-callout"></div>
+<script src="./static/js/document-generator.js"></script>
+<script src="./static/js/template-convocation-ess.js"></script>

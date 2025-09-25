@@ -1,0 +1,37 @@
+<h2 class="fr-h2">📄 Générateur de convocation</h2>
+
+<form id="convocationForm" class="fr-form-group">
+  <label for="nature" class="fr-label">Nature de la convocation</label>
+  <select id="nature" class="fr-select" required>
+    <option>Conseil d'administration</option>
+    <option>Équipe de Suivi de Scolarisation (ESS)</option>
+    <option>Commission éducative</option>
+    <option>Conseil de discipline</option>
+    <option>CESCE</option>
+  </select>
+  <label for="eleve" class="fr-label">Nom de l'élève</label>
+  <input type="text" id="eleve" required class="fr-input">
+
+  <label for="classe" class="fr-label">Classe</label>
+  <input type="text" id="classe" class="fr-input">
+
+  <label for="date" class="fr-label">Date</label>
+  <input type="date" id="date" class="fr-input">
+
+  <label for="heure" class="fr-label">Heure</label>
+  <input type="time" id="heure" class="fr-input">
+  
+  <label for="lieu" class="fr-label">Lieu</label>
+  <input type="text" id="lieu" class="fr-input">
+
+  <label for="auteur" class="fr-label">Auteur</label>
+  <input type="text" id="auteur" class="fr-input">
+
+  <button id="previewBtn" type="button" class="fr-btn fr-mt-2w">📌 Prévisualiser</button>
+  <button id="downloadDOCXBtn" type="button" class="fr-btn fr-btn--secondary fr-mt-2w">📝 Word</button>
+  <button id="downloadPDFBtn" type="button" class="fr-btn fr-btn--secondary fr-mt-2w">📄 PDF</button>
+</form>
+
+<div id="preview" class="fr-mt-4w fr-callout"></div>
+<script src="./static/js/document-generator.js"></script>
+<script src="./static/js/template-convocation.js"></script>

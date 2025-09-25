@@ -1,0 +1,29 @@
+<form class="fr-form-group">
+  <label class="fr-label" for="template">Template</label>
+  <select class="fr-select" id="template" name="template" onchange="loadTemplate(this)">
+    <option value="" disabled selected>-- Sélectionner un template --</option>
+
+    <optgroup label="Convocation">
+      <option value="convocation-ESS">Équipe de Suivi de Scolarisation (ESS)</option>
+      <option value="convocation-discipline" disabled>Conseil de discipline</option>
+      <option value="convocation-ca" disabled>Conseil d'administration</option>
+      <option value="convocation-commission" disabled>Commission éducative</option>
+      <option value="convocation-educative" disabled>Équipe éducative</option>
+      <option value="convocation-cesce" disabled>CESCE</option>
+    </optgroup>
+
+    <optgroup label="Attestation">
+      <option value="certificat-scolarite" disabled>Certificat de Scolarité</option>
+      <option value="billet-passage" disabled>Billet de Passage</option>
+    </optgroup>    
+  </select>
+</form>
+
+<div id="form-container" class="fr-mt-4w"></div>
+<script>
+function loadTemplate(select) {
+  const val = select.value;
+  if (!val) return;
+  htmx.ajax('GET', `/templates/template-${val}.html`, { target: "#form-container" });
+}
+</script>
