@@ -24,6 +24,6 @@
 function loadTemplate(select) {
   const val = select.value;
   if (!val) return;
-  htmx.ajax('GET', `/templates/template-${val}.html`, { target: "#form-container" });
+  htmx.ajax('GET', `templates/template-${val}.html`, { target: "#form-container" });
 }
 </script>
