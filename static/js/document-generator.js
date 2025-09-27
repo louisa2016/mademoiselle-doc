@@ -29,11 +29,7 @@ class DocumentGenerator {
   async downloadDOCX(filename = null) {
     const data = this.collectData();
 
-    // Détection automatique du baseUrl (vide en local, "mademoiselle-doc" sur GitHub Pages)
-    const repoName = "mademoiselle-doc";
-    const baseUrl = window.location.pathname.includes(`/${repoName}/`) ? `/${repoName}` : "";
-
-    const response = await fetch(`${baseUrl}/static/templates/template-${this.templateName}.docx`);
+    const response = await fetch(`${window.BASE_URL}/static/templates/template-${this.templateName}.docx`);
     const buffer = await response.arrayBuffer();
 
     const zip = new PizZip(buffer);
