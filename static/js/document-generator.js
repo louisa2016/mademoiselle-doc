@@ -28,11 +28,18 @@ class DocumentGenerator {
 
   async downloadDOCX(filename = null) {
     const data = this.collectData();
-    const response = await fetch(`/static/templates/template-${this.templateName}.docx`);
+
+    // Détection automatique du baseUrl (vide en local, "mademoiselle-doc" sur GitHub Pages)
+    const repoName = "mademoiselle-doc";
+    const baseUrl = window.location.pathname.includes(`/${repoName}/`) ? `/${repoName}` : "";
+
+    const response = await fetch(`${baseUrl}/static/templates/template-${this.templateName}.docx`);
     const buffer = await response.arrayBuffer();
+
     const zip = new PizZip(buffer);
     const doc = new window.docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
     doc.render(data);
+
     saveAs(doc.toBlob(), filename || `${this.templateName}.docx`);
   }
 
